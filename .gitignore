@@ -1,0 +1,9 @@
+# Never publish personal documents (see AGENTS.md)
+*.docx
+*.doc
+*.pdf
+
+# macOS / editor clutter
+.DS_Store
+.vscode/
+.claude/

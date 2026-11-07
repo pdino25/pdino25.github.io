@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paul Marrandino</title>
+<meta name="description" content="Paul Marrandino — Cloud Tech Sourcing Manager & AI Talent Engagement Leader, New York.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --columbia: #B9D9EB;
+    --columbia-soft: #E6F2F9;
+    --columbia-deep: #2C6A94;
+    --navy: #0B2545;
+    --ink: #1C2B3A;
+    --muted: #5A6B7B;
+    --bg: #FAFCFE;
+    --card: #FFFFFF;
+    --line: #DCE7EF;
+    --radius: 16px;
+    --shadow: 0 1px 2px rgba(11,37,69,.06), 0 8px 24px rgba(11,37,69,.06);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 "Inter", system-ui, -apple-system, sans-serif;
+  }
+  a { color: var(--navy); }
+  h1, h2, h3 { color: var(--navy); line-height: 1.2; margin: 0; }
+  h2 { font-family: "DM Serif Display", Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 16px; top: 12px; z-index: 100; background: var(--navy); color: #fff; padding: 8px 12px; border-radius: 8px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,252,254,.88); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { font-family: "DM Serif Display", Georgia, serif; font-size: 1.35rem; color: var(--navy); text-decoration: none; white-space: nowrap; }
+  .brand span { color: var(--columbia-deep); }
+  .nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
+  .nav ul::-webkit-scrollbar { display: none; }
+  .nav a.link {
+    display: block; padding: 8px 12px; border-radius: 999px; text-decoration: none;
+    color: var(--muted); font-weight: 500; font-size: .92rem; white-space: nowrap;
+  }
+  .nav a.link:hover { color: var(--navy); background: var(--columbia-soft); }
+  .nav a.link.active { color: var(--navy); background: var(--columbia); }
+
+  /* Hero */
+  .hero { padding: 72px 0 40px; background: linear-gradient(180deg, var(--columbia-soft), var(--bg)); }
+  .eyebrow { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--columbia-deep); margin-bottom: 12px; }
+  .hero h1 { font-family: "DM Serif Display", Georgia, serif; font-weight: 400; font-size: clamp(2.6rem, 7vw, 4.2rem); }
+  .hero p.lede { font-size: clamp(1.05rem, 2.2vw, 1.25rem); color: var(--ink); max-width: 680px; margin: 16px 0 24px; }
+  .hero p.lede strong { color: var(--navy); }
+  .g-word { font-weight: 600; }
+  .hero p.headline { margin: 14px 0 0; font-size: clamp(1.1rem, 2.4vw, 1.35rem); font-weight: 700; color: var(--navy); }
+  .hero p.headline + .lede { margin-top: 12px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px;
+    text-decoration: none; font-weight: 600; font-size: .95rem; border: 1.5px solid var(--navy);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--navy); color: #fff; }
+  .btn.ghost { color: var(--navy); background: transparent; }
+  .btn.ghost:hover { background: var(--columbia); }
+  .btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .loc { margin-top: 18px; color: var(--muted); font-size: .92rem; }
+  .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 44px; align-items: center; }
+  .avatar {
+    width: 200px; height: 200px; border-radius: 50%; object-fit: cover; display: block;
+    border: 6px solid var(--columbia); box-shadow: 0 0 0 2px var(--card), var(--shadow);
+  }
+  @media (max-width: 720px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+    .avatar { width: 140px; height: 140px; border-width: 5px; }
+  }
+
+  /* Org logos */
+  .logo {
+    display: block; height: 34px; width: auto; max-width: 210px; margin-bottom: 14px;
+    object-fit: contain; object-position: left center;
+  }
+  .logo.tall { height: 64px; }
+  .nav nav { min-width: 0; }
+  .logo.mid { height: 42px; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 40px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .stat b { display: block; font-family: "DM Serif Display", Georgia, serif; font-weight: 400; font-size: 2rem; color: var(--navy); }
+  .stat span { color: var(--muted); font-size: .88rem; }
+
+  /* Section tiles */
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 8px 0 24px; }
+  .tile {
+    display: block; text-decoration: none; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 20px; box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease;
+    border-top: 4px solid var(--columbia);
+  }
+  .tile:hover, .tile:focus-visible { transform: translateY(-3px); border-color: var(--columbia-deep); }
+  .tile .num { font-size: .78rem; font-weight: 700; color: var(--columbia-deep); letter-spacing: .08em; }
+  .tile h3 { font-size: 1.1rem; margin: 6px 0 4px; }
+  .tile p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+  /* Sections */
+  section.block { padding: 56px 0; border-top: 1px solid var(--line); }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+  .sec-head .top { font-size: .88rem; color: var(--muted); text-decoration: none; }
+  .sec-head .top:hover { color: var(--navy); }
+
+  .org {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px; margin-bottom: 18px; box-shadow: var(--shadow);
+  }
+  .org-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+  .org-head h3 { font-size: 1.25rem; }
+  .org-head .where { color: var(--muted); font-weight: 500; font-size: .95rem; }
+  .dates {
+    display: inline-block; font-size: .82rem; font-weight: 600; color: var(--navy);
+    background: var(--columbia-soft); border: 1px solid var(--columbia); padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .org .desc { color: var(--muted); font-style: italic; margin: 6px 0 0; font-size: .95rem; }
+  .sub { margin-top: 6px; color: var(--columbia-deep); font-weight: 600; font-size: .9rem; text-transform: uppercase; letter-spacing: .06em; }
+
+  .roles { list-style: none; margin: 18px 0 0; padding: 0 0 0 18px; border-left: 2px solid var(--columbia); }
+  .role { position: relative; padding: 0 0 20px 14px; }
+  .role:last-child { padding-bottom: 0; }
+  .role::before {
+    content: ""; position: absolute; left: -26px; top: 6px; width: 12px; height: 12px; border-radius: 50%;
+    background: var(--card); border: 3px solid var(--columbia-deep);
+  }
+  .role-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+  .role h4 { margin: 0; font-size: 1.02rem; color: var(--navy); }
+  .role ul, .org > ul { margin: 8px 0 0; padding-left: 18px; }
+  .role li, .org > ul li { margin: 4px 0; }
+  .role-title { font-weight: 600; color: var(--navy); margin-top: 12px; }
+
+  details.more { margin-top: 18px; }
+  details.more summary {
+    cursor: pointer; font-weight: 600; color: var(--navy); list-style: none;
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px;
+    background: var(--columbia-soft); border: 1px solid var(--columbia);
+  }
+  details.more summary::-webkit-details-marker { display: none; }
+  details.more summary::after { content: "+"; font-size: 1.1rem; line-height: 1; }
+  details.more[open] summary::after { content: "–"; }
+  details.more .roles { margin-top: 20px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid2 .org { margin-bottom: 0; }
+
+  .interests { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px;
+    font-weight: 500; box-shadow: var(--shadow);
+  }
+  .chip span { margin-right: 6px; }
+
+  footer { padding: 40px 0 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+  footer a { color: var(--navy); font-weight: 600; text-decoration: none; margin-left: 14px; }
+  footer a:first-child { margin-left: 0; }
+
+  :focus-visible { outline: 3px solid var(--columbia-deep); outline-offset: 2px; border-radius: 6px; }
+
+  @media (max-width: 860px) {
+    .stats, .tiles { grid-template-columns: repeat(2, 1fr); }
+    .grid2 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .brand { display: none; }
+    .nav .wrap { justify-content: center; }
+    .hero { padding-top: 48px; }
+    .org { padding: 18px; }
+    .stat b { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Paul <span>Marrandino</span></a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a class="link" href="#summary">Summary</a></li>
+        <li><a class="link" href="#experience">Experience</a></li>
+        <li><a class="link" href="#education">Education</a></li>
+        <li><a class="link" href="#volunteering">Volunteering</a></li>
+        <li><a class="link" href="#interests">Interests</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 00 SUMMARY -->
+  <section class="summary-sec" id="summary" aria-labelledby="h-sum">
+  <div class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+      <img class="avatar" src="images/paul.jpg" alt="Portrait of Paul Marrandino" width="200" height="200">
+      <div>
+      <span class="eyebrow" id="h-sum">Summary</span>
+      <h1>Paul M. Marrandino</h1>
+      <p class="headline">Cloud Tech Sourcing Manager &amp; AI Talent Engagement Leader</p>
+      <p class="lede">
+        I've spent 13+ years at <span class="g-word" role="text" aria-label="Google"><span aria-hidden="true"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span></span> building teams that find and hire exceptional engineers, researchers, and product leaders. Prior to Google, I placed talent for Fortune 500s and co-founded a spirits import business.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/paulmarrandino/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn ghost" href="https://github.com/pdino25" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          GitHub
+        </a>
+      </div>
+      <p class="loc">📍 New York, NY</p>
+      </div>
+      </div>
+
+      <div class="stats" aria-label="Highlights">
+        <div class="stat"><b>13+ yrs</b><span>at Google, since May 2013</span></div>
+        <div class="stat"><b>123%+</b><span>of key hiring targets, 2023–2025</span></div>
+        <div class="stat"><b>~200</b><span>sourcers led as Interim Cloud Sourcing Lead</span></div>
+        <div class="stat"><b>EMBA ’27</b><span>Columbia University</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <nav class="tiles" aria-label="Jump to section">
+      <a class="tile" href="#experience"><div class="num">01</div><h3>Experience</h3><p>Google, Adecco, Axelon, DSR Imports, SMG</p></a>
+      <a class="tile" href="#education"><div class="num">02</div><h3>Education</h3><p>Columbia EMBA · St. Joseph’s BA Finance</p></a>
+      <a class="tile" href="#volunteering"><div class="num">03</div><h3>Volunteering</h3><p>NYU guest speaker · SJU Alumni Board</p></a>
+      <a class="tile" href="#interests"><div class="num">04</div><h3>Interests</h3><p>Poetry, Marvel, Legos, Broadway &amp; more</p></a>
+    </nav>
+  </div>
+  </section>
+
+  <!-- 01 EXPERIENCE -->
+  <section class="block" id="experience" aria-labelledby="h-exp">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-exp">Professional Experience</h2><a class="top" href="#top">Back to top ↑</a></div>
+
+      <article class="org">
+        <img class="logo" src="images/logos/google.svg" alt="Google logo">
+        <div class="org-head">
+          <h3>Google <span class="where">· New York, NY &amp; Mountain View, CA</span></h3>
+          <span class="dates">May 2013 – Present</span>
+        </div>
+        <div class="sub">Google Cloud</div>
+
+        <ol class="roles">
+          <li class="role">
+            <div class="role-head"><h4>Cloud Tech Sourcing Manager &amp; AI Talent Engagement Lead</h4><span class="dates">May 2023 – Present</span></div>
+            <ul>
+              <li>Manage Cloud Tech Org of 35 sourcers responsible for L6/7 Software Engineering, Hardware, &amp; Product Management delivery for Cloud across 17 VPs</li>
+              <li>Partner with the Cloud Engineering VP/GM to design talent mapping mechanisms focused on proactively building talent pools ahead of future business needs</li>
+              <li>Lead all key stakeholders across Google Recruiting in building criteria for AI Top Talent lists centered on engaging and hiring best in class AI engineers and researchers</li>
+              <li>Co-lead and partner with the Executive Recruiting team &amp; Google DeepMind on building an AI Talent magnet list and developing specialized engagement strategies for the CEO of Google Cloud</li>
+              <li>Shift strategy &amp; focus to cost per hire, utilizing a leaner and more targeted research team to meet current talent growth demands</li>
+              <li>Lead sourcing delivery dedicated to filling the most critical and niche staffing requisitions for Google Cloud</li>
+              <li>Interview key stakeholders, leverage pertinent data, and influence Operations to build out a brand new Hiring Committee responsible for reviewing AI talent in 2025</li>
+              <li>Exceed key hiring targets by 123% in 2023, 2024, and 2025 and by over 150% so far in 2026</li>
+            </ul>
+          </li>
+          <li class="role">
+            <div class="role-head"><h4>Cloud Sourcing Manager</h4><span class="dates">Apr 2021 – May 2023</span></div>
+            <ul>
+              <li>Promoted to lead all of Cloud Tech Sourcing verticals during peak hiring periods in 2021–2022</li>
+              <li>Led Cloud sourcing delivery for a team of over 100 sourcers and 14 leads supporting Product Management, Site Reliability Engineering (SRE), Engineering Management, Senior Software Engineering, Developer Relations, ProdOps, Technical Writers, and Technical Program Management hiring</li>
+              <li>Served as Interim Lead for all of Cloud Sourcing (~200 sourcers) including Sales, Go-To-Market, and Cloud Customer Sourcing teams from Apr – Oct 2021 while covering a peer’s leave</li>
+              <li>Exceeded all sourcing delivery targets and overall Google aspirational benchmarks from 2021–2023</li>
+              <li>Delivered on all Diversity, Equity, and Inclusion targets for the first time in SRE history</li>
+            </ul>
+          </li>
+        </ol>
+
+        <details class="more">
+          <summary>Earlier Google roles (2013–2021)</summary>
+          <ol class="roles">
+            <li class="role">
+              <div class="role-head"><h4>Technical Infrastructure Staffing Lead</h4><span class="dates">Apr 2019 – Apr 2021</span></div>
+              <ul>
+                <li>Led strategy and managed delivery for all Technical Infrastructure Sourcing (4 Managers and 60+ individual contributors)</li>
+                <li>Overachieved on hiring targets consistently with a focus on diversity, equity, and inclusion</li>
+              </ul>
+            </li>
+            <li class="role">
+              <div class="role-head"><h4>Site Reliability Engineering Staffing Lead</h4><span class="dates">Jan 2018 – Apr 2019</span></div>
+              <ul>
+                <li>Promoted by senior leadership team to manage strategy and delivery for SRE North America</li>
+                <li>Led 3 Managers and 30+ individual contributors and improved productivity per resource by over 52% per sourcer in 2018</li>
+              </ul>
+            </li>
+            <li class="role">
+              <div class="role-head"><h4>Channels Specialist Team Lead</h4><span class="dates">Jan 2015 – Jan 2018</span></div>
+              <ul>
+                <li>Re-invented the interview process for SRE Software Engineering candidates, setting the global standard for all of SRE</li>
+                <li>Led underperforming team in Q1 2015 to become the top performing team by end of 2015</li>
+              </ul>
+            </li>
+            <li class="role">
+              <div class="role-head"><h4>Technical Recruiter – SRE</h4><span class="dates">Jan 2014 – Jan 2015</span></div>
+              <ul><li>Won 2014 Q3 Top Producer and a paid trip to Australia for delivering the most offer accepts</li></ul>
+            </li>
+            <li class="role">
+              <div class="role-head"><h4>Technical Sourcer – SRE</h4><span class="dates">May 2013 – Jan 2014</span></div>
+              <ul><li>Top overall producer on the SRE sourcing team and winner of a trip to Dublin</li></ul>
+            </li>
+          </ol>
+        </details>
+      </article>
+
+      <article class="org">
+        <img class="logo" src="images/logos/adecco.svg" alt="Adecco logo">
+        <div class="org-head">
+          <h3>Adecco <span class="where">· Onsite at Google Inc. · New York, NY</span></h3>
+          <span class="dates">May 2012 – May 2013</span>
+        </div>
+        <div class="role-title">Technical Sourcer</div>
+        <ul><li>Top overall producer on the SRE sourcing team during contractual tenure</li></ul>
+      </article>
+
+      <article class="org">
+        <img class="logo" src="images/logos/axelon.svg" alt="Axelon logo">
+        <div class="org-head">
+          <h3>Axelon Services <span class="where">· New York, NY</span></h3>
+          <span class="dates">Oct 2007 – May 2012</span>
+        </div>
+        <p class="desc">Technical Staffing and Recruiting Agency vendor to Fortune 100 and 500 companies.</p>
+        <div class="role-title">Senior Recruiter / Relationship &amp; Account Manager</div>
+        <ul>
+          <li>Generated over $200K in pure profit in 2011 from placing full time employees, while bringing in over $25K/month in consulting profit</li>
+          <li>Landed the largest singular deal in company history</li>
+        </ul>
+      </article>
+
+      <article class="org">
+        <img class="logo tall" src="images/logos/dsr.jpg" alt="DSR Imports logo">
+        <div class="org-head">
+          <h3>DSR Imports LLC <span class="where">· Great Neck, NY</span></h3>
+          <span class="dates">May 2004 – Oct 2007</span>
+        </div>
+        <p class="desc">Wine and spirits importing/wholesale company with distribution channels in 11 states.</p>
+        <div class="role-title">Vice President / Founder</div>
+        <ul>
+          <li>Managed sales and distribution in 11 states and 67 accounts in NYC and Long Island, shaping Mernaya and Khortytsa Vodka brands from unknowns into two leading brands on the Russian Market</li>
+          <li>Created business plan for DSR including goals and sales forecasting</li>
+          <li>Developed model for acquisitions, created price points, and set budget for line of vodka products</li>
+        </ul>
+      </article>
+
+      <article class="org">
+        <img class="logo mid" src="images/logos/smg.svg" alt="SMG logo">
+        <div class="org-head">
+          <h3>SMG <span class="where">· Atlantic City, NJ</span></h3>
+          <span class="dates">Jun 2003 – Aug 2003</span>
+        </div>
+        <p class="desc">World leader in venue management and development. (Now ASM Global.)</p>
+        <div class="role-title">Finance Intern</div>
+        <ul><li>Contributed to the management and implementation of an in-house accounting system</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- 02 EDUCATION -->
+  <section class="block" id="education" aria-labelledby="h-edu">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-edu">Education</h2><a class="top" href="#top">Back to top ↑</a></div>
+      <div class="grid2">
+        <article class="org">
+          <img class="logo" src="images/logos/columbia.svg" alt="Columbia University logo">
+          <div class="org-head"><h3>Columbia University</h3><span class="dates">May 2027</span></div>
+          <p class="desc">New York, NY</p>
+          <div class="role-title">Executive MBA</div>
+          <ul><li>Dean’s List</li><li>AI Club</li></ul>
+        </article>
+        <article class="org">
+          <img class="logo" src="images/logos/sju.svg" alt="Saint Joseph’s University logo">
+          <div class="org-head"><h3>St. Joseph’s University</h3><span class="dates">May 2004</span></div>
+          <p class="desc">Philadelphia, PA</p>
+          <div class="role-title">Bachelor of Arts in Finance, minor in Economics</div>
+          <ul>
+            <li>GPA: 3.5 (Cum Laude)</li>
+            <li>Dean’s List</li>
+            <li>Omicron Delta Epsilon International Economics Honors Society</li>
+            <li>Sigma Phi Epsilon</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 VOLUNTEERING -->
+  <section class="block" id="volunteering" aria-labelledby="h-vol">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-vol">Volunteering</h2><a class="top" href="#top">Back to top ↑</a></div>
+      <div class="grid2">
+        <article class="org">
+          <img class="logo" src="images/logos/nyu.svg" alt="NYU logo">
+          <div class="org-head"><h3>NYU</h3><span class="dates">Sep 2014 – Present</span></div>
+          <p class="desc">New York, NY · Courant Institute of Mathematical Sciences &amp; School of Professional Studies</p>
+          <div class="role-title">Guest Speaker &amp; Consultant</div>
+          <ul><li>For the Human Resource Management &amp; the Courant Mathematics in Finance MS programs</li></ul>
+        </article>
+        <article class="org">
+          <img class="logo" src="images/logos/sju.svg" alt="Saint Joseph’s University logo">
+          <div class="org-head"><h3>Saint Joseph’s University</h3><span class="dates">Feb 2022 – Present</span></div>
+          <p class="desc">Philadelphia, PA</p>
+          <div class="role-head" style="margin-top:12px"><span class="role-title" style="margin:0">National Alumni Board</span><span class="dates">May 2024 – Present</span></div>
+          <ul><li>Selected as NYC Regional Chapter Chair to lead, program manage, and direct alumni events</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 INTERESTS -->
+  <section class="block" id="interests" aria-labelledby="h-int">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-int">Interests</h2><a class="top" href="#top">Back to top ↑</a></div>
+      <div class="interests">
+        <div class="chip"><span aria-hidden="true">✍️</span>Writing Poetry</div>
+        <div class="chip"><span aria-hidden="true">🦸</span>Marvel Comics</div>
+        <div class="chip"><span aria-hidden="true">🧱</span>Legos</div>
+        <div class="chip"><span aria-hidden="true">🎭</span>Broadway Theatre</div>
+        <div class="chip"><span aria-hidden="true">🧩</span>Puzzles</div>
+        <div class="chip"><span aria-hidden="true">🏈</span>Fantasy Sports</div>
+        <div class="chip"><span aria-hidden="true">❓</span>Trivia</div>
+        <div class="chip"><span aria-hidden="true">💪</span>Fitness</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Paul M. Marrandino · New York, NY</span>
+    <span>
+      <a href="https://www.linkedin.com/in/paulmarrandino/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/pdino25" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Highlight the nav link for the section currently in view.
+  (function () {
+    var links = document.querySelectorAll('.nav a.link');
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (a) { a.classList.remove('active'); });
+          if (map[e.target.id]) map[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('#summary, section.block').forEach(function (s) { io.observe(s); });
+  })();
+</script>
+</body>
+</html>
