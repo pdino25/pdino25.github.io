@@ -4,13 +4,14 @@ These rules apply to any AI agent (Claude or otherwise) working in this folder.
 
 ## Source of truth
 - The CV is `Paul Marrandino Resume 2026.docx` (there is no `cv.pdf` yet). Site content must match it. Don't invent roles, dates, metrics, awards or skills.
-- Keep the CV's section order: Professional Experience → Education → Volunteering → Interests.
+- Page order: Summary → Portfolio → then the CV's section order: Professional Experience → Education → Volunteering → Interests.
+- Portfolio lists Paul's public GitHub projects (live link + code link + screenshot); descriptions come from each repo's README/description.
 - Public profiles: LinkedIn https://www.linkedin.com/in/paulmarrandino/ and GitHub https://github.com/pdino25.
 
 ## Never publish
 - Home street address or apartment number. City-level location ("New York, NY") is fine.
 - Personal phone numbers.
-- Email addresses (personal or Google work email) unless Paul explicitly provides one for the site.
+- Email addresses (personal or Google work email) unless Paul explicitly provides one for the site. Approved for the site: paulmarrandino@gmail.com (Email button). Never publish marrandino@google.com.
 - Google-confidential information beyond what is already in the CV: internal project names, unreleased products, headcount plans, names of colleagues or candidates, compensation.
 - Names or contact details of other people (references, managers, candidates).
 - Credentials, API keys, tokens, analytics IDs, or any secret, in any file.
